@@ -1,0 +1,154 @@
+\documentclass[12pt,titlepage]{report}
+
+%%%%%%%%%%%%%%%% List of packages %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+
+\usepackage{epsfig,times,textcomp, amsmath, amsfonts}
+\usepackage{setspace}
+
+\usepackage{latexsym}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{cases}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{multirow}
+
+\usepackage{algpascal}
+\usepackage{algc}
+
+% create side navigation window
+\usepackage{hyperref}
+\hypersetup{pdftex,colorlinks=true,allcolors=blue}
+
+% algorithmic stuffs
+\newcommand{\alg}{\texttt{algorithmicx}}
+\newcommand{\old}{\texttt{algorithmic}}
+\newenvironment{alginc}[1][pseudocode]{\medskip\algsetlanguage{#1}\begin{algorithmic}[1]}{\end{algorithmic}\medskip}
+\newenvironment{algi}[1][pseudocode]{\algsetlanguage{#1}\begin{algorithmic}[1]}{\end{algorithmic}}
+
+\newtheorem{definition}{Definition} [section]
+\newtheorem{theorem}{Theorem}  [section]
+\newtheorem{corollary}{Corollary} [section]
+\newtheorem{lemma}{Lemma}  [section]
+\newtheorem{conjecture}{Conjecture} [section]
+
+\usepackage{algpseudocode}   %% Moving this one up causes latex not to understand \state, \require and think \item is missing
+                                                  %% http://tex.stackexchange.com/questions/119047/problem-with-algorithmicx-perhaps-a-missing-item-whats-wrong
+
+\usepackage{color}
+\usepackage[table]{xcolor}		% color table
+\usepackage{booktabs}
+\newcommand{\bfrule}{\specialrule{\heavyrulewidth}{\abovetopsep}{\belowbottomsep}}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\usepackage{boldline,hhline}
+  
+\definecolor{grey}{named}{gray}
+%%%%%%%%%%%%%%%% COPY FROM PROPOSAL %%%%%%%%%%%%%%%%
+%To have algorithm boxes of specific width
+%
+\floatstyle{plain}
+\newfloat{myalgo}{tbhp}{mya}
+\newenvironment{Algorithm}[2][tbh]%
+{\begin{myalgo}[#1]
+\centering
+\begin{minipage}{#2}
+\begin{algorithm}[H]}%
+{\end{algorithm}
+\end{minipage}
+\end{myalgo}}
+
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{~\qed\par\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\usepackage{acronym}
+%%%%%%%%%%%%%%%% END OF COPYING FROM PROPOSAL %%%%%%%%%%%%%%%
+
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+
+\usepackage{fancyhdr}
+\rfoot{\thepage}
+
+\usepackage[
+top    = 1in,
+bottom = 1in,
+left   = 1.25in,
+right  = 1.25in,
+headsep=1mm,
+includehead]{geometry}
+
+\usepackage{fancyhdr}
+\usepackage{blindtext}
+\fancyhead[RE,LO]{\normalsize}
+
+\textheight     8in
+\textwidth      5.4truein
+
+\parskip 4pt plus 1pt
+\parindent 0pt
+
+\hyphenpenalty=5000
+\tolerance=1000
+
+%%%%%% Checkmark and xmark %%%%%%%%%%%%
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\usepackage[justification=centering]{caption}
+\hyphenation{de-ve-lop-ment do-cu-ment}
+
+\begin{document}
+
+\thispagestyle{empty}
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\input{title}
+\newpage
+
+\doublespacing
+
+\fancyhf{}
+\chead[ch-even]{ch-odd}
+
+\input{acknowledgement}
+\newpage
+
+
+\input{abstract}
+
+
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\setcounter{secnumdepth}{5}
+
+\input{1-intro}
+\input{2-background}
+\end{document}
